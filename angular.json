@@ -2,5 +2,298 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "content-loader": {
+      "root": "projects/content-loader",
+      "sourceRoot": "projects/content-loader/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/content-loader/tsconfig.lib.json",
+            "project": "projects/content-loader/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/content-loader/src/test.ts",
+            "tsConfig": "projects/content-loader/tsconfig.spec.json",
+            "karmaConfig": "projects/content-loader/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/content-loader/tsconfig.lib.json",
+              "projects/content-loader/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "contentLoaderApp": {
+      "root": "projects/contentLoaderApp/",
+      "sourceRoot": "projects/contentLoaderApp/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/contentLoaderApp",
+            "index": "projects/contentLoaderApp/src/index.html",
+            "main": "projects/contentLoaderApp/src/main.ts",
+            "polyfills": "projects/contentLoaderApp/src/polyfills.ts",
+            "tsConfig": "projects/contentLoaderApp/tsconfig.app.json",
+            "assets": [
+              "projects/contentLoaderApp/src/favicon.ico",
+              "projects/contentLoaderApp/src/assets"
+            ],
+            "styles": [
+              "projects/contentLoaderApp/src/styles.css"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/contentLoaderApp/src/environments/environment.ts",
+                  "with": "projects/contentLoaderApp/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "contentLoaderApp:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "contentLoaderApp:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "contentLoaderApp:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/contentLoaderApp/src/test.ts",
+            "polyfills": "projects/contentLoaderApp/src/polyfills.ts",
+            "tsConfig": "projects/contentLoaderApp/tsconfig.spec.json",
+            "karmaConfig": "projects/contentLoaderApp/karma.conf.js",
+            "styles": [
+              "projects/contentLoaderApp/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/contentLoaderApp/src/favicon.ico",
+              "projects/contentLoaderApp/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/contentLoaderApp/tsconfig.app.json",
+              "projects/contentLoaderApp/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "contentLoaderApp-e2e": {
+      "root": "projects/contentLoaderApp-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/contentLoaderApp-e2e/protractor.conf.js",
+            "devServerTarget": "contentLoaderApp:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "contentLoaderApp:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/contentLoaderApp-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "contentLoaderElement": {
+      "root": "projects/contentLoaderElement/",
+      "sourceRoot": "projects/contentLoaderElement/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/contentLoaderElement",
+            "index": "projects/contentLoaderElement/src/index.html",
+            "main": "projects/contentLoaderElement/src/main.ts",
+            "polyfills": "projects/contentLoaderElement/src/polyfills.ts",
+            "tsConfig": "projects/contentLoaderElement/tsconfig.app.json",
+            "assets": [
+              "projects/contentLoaderElement/src/favicon.ico",
+              "projects/contentLoaderElement/src/assets"
+            ],
+            "styles": [
+              "projects/contentLoaderElement/src/styles.css"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/contentLoaderElement/src/environments/environment.ts",
+                  "with": "projects/contentLoaderElement/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "contentLoaderElement:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "contentLoaderElement:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "contentLoaderElement:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/contentLoaderElement/src/test.ts",
+            "polyfills": "projects/contentLoaderElement/src/polyfills.ts",
+            "tsConfig": "projects/contentLoaderElement/tsconfig.spec.json",
+            "karmaConfig": "projects/contentLoaderElement/karma.conf.js",
+            "styles": [
+              "projects/contentLoaderElement/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/contentLoaderElement/src/favicon.ico",
+              "projects/contentLoaderElement/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/contentLoaderElement/tsconfig.app.json",
+              "projects/contentLoaderElement/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "contentLoaderElement-e2e": {
+      "root": "projects/contentLoaderElement-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/contentLoaderElement-e2e/protractor.conf.js",
+            "devServerTarget": "contentLoaderElement:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "contentLoaderElement:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/contentLoaderElement-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "content-loader"
 }

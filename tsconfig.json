@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "content-loader": [
+        "dist/content-loader"
+      ],
+      "content-loader/*": [
+        "dist/content-loader/*"
+      ]
+    }
   }
 }
