@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, SecurityContext } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ContentLoaderConfig } from './content-loader.config';
 
 @Component({
   selector: 'lib-content-loader',
@@ -7,10 +8,9 @@ import { DomSanitizer } from '@angular/platform-browser';
   styles: []
 })
 export class ContentLoaderComponent implements OnInit {
-  defaultConfig = {
+  defaultConfig: ContentLoaderConfig = {
     animate: true,
     ariaLabel: 'Loading content...',
-    baseUrl: '',
     gradientRatio: 2,
     height: 400,
     idClip: this.uid(),
@@ -27,7 +27,7 @@ export class ContentLoaderComponent implements OnInit {
     width: 1300
   };
 
-  @Input() config: any;
+  @Input() config: ContentLoaderConfig;
 
   constructor(private sanitizer: DomSanitizer) { }
 

@@ -1,14 +1,52 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<lib-content-loader [config]="config">
-    <svg:rect x="20" y="15" rx="20" ry="20" width="300" height="320"></svg:rect>
-    <svg:rect x="92" y="347" rx="5" ry="5" width="45" height="45"></svg:rect>
-    <svg:rect x="148" y="347" rx="5" ry="5" width="45" height="45"></svg:rect>
-    <svg:rect x="205" y="347" rx="5" ry="5" width="45" height="45"></svg:rect>
-    <svg:rect x="361" y="17" rx="10" ry="10" width="420" height="33"></svg:rect>
-    <svg:rect x="361" y="71" rx="10" ry="10" width="315" height="33"></svg:rect>
-    <svg:rect x="361" y="125" rx="10" ry="10" width="233" height="20"></svg:rect>
-    <svg:rect x="361" y="216" rx="5" ry="5" width="195" height="13"></svg:rect>
-    <svg:rect x="361" y="251" rx="5" ry="5" width="195" height="13"></svg:rect>
-    <svg:rect x="367" y="311" rx="8" ry="8" width="130" height="38"></svg:rect>
-    <svg:rect x="515" y="311" rx="8" ry="8" width="130" height="38"></svg:rect>
-</lib-content-loader>
+<div class="container">
+    <h1>Angular Content Loader</h1>
+    <div class="row">
+        <div class="col">
+            <lib-content-loader [config]="config">
+                <svg:rect x="20" y="15" rx="20" ry="20" width="300" height="320"></svg:rect>
+                <svg:rect x="92" y="347" rx="5" ry="5" width="45" height="45"></svg:rect>
+                <svg:rect x="148" y="347" rx="5" ry="5" width="45" height="45"></svg:rect>
+                <svg:rect x="205" y="347" rx="5" ry="5" width="45" height="45"></svg:rect>
+                <svg:rect x="361" y="17" rx="10" ry="10" width="420" height="33"></svg:rect>
+                <svg:rect x="361" y="71" rx="10" ry="10" width="315" height="33"></svg:rect>
+                <svg:rect x="361" y="125" rx="10" ry="10" width="233" height="20"></svg:rect>
+                <svg:rect x="361" y="216" rx="5" ry="5" width="195" height="13"></svg:rect>
+                <svg:rect x="361" y="251" rx="5" ry="5" width="195" height="13"></svg:rect>
+                <svg:rect x="367" y="311" rx="8" ry="8" width="130" height="38"></svg:rect>
+                <svg:rect x="515" y="311" rx="8" ry="8" width="130" height="38"></svg:rect>
+            </lib-content-loader>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <pre>
+                <code class="language-ts">
+{{"config: ContentLoaderConfig = {
+    primaryColor: '#f3f3f3',
+    secondaryColor: '#ecebeb'
+};"}}
+                </code>
+            </pre>
+            <pre>
+                <code class="language-html">
+&lt;lib-content-loader [config]="config">
+    &lt;svg:rect x="20" y="15" rx="20" ry="20" width="300" height="320"&gt;&lt;/svg:rect&gt;
+    &lt;svg:rect x="92" y="347" rx="5" ry="5" width="45" height="45"&gt;&lt;/svg:rect&gt;
+    &lt;svg:rect x="148" y="347" rx="5" ry="5" width="45" height="45"&gt;&lt;/svg:rect&gt;
+    &lt;svg:rect x="205" y="347" rx="5" ry="5" width="45" height="45"&gt;&lt;/svg:rect&gt;
+    &lt;svg:rect x="361" y="17" rx="10" ry="10" width="420" height="33"&gt;&lt;/svg:rect&gt;
+    &lt;svg:rect x="361" y="71" rx="10" ry="10" width="315" height="33"&gt;&lt;/svg:rect&gt;
+    &lt;svg:rect x="361" y="125" rx="10" ry="10" width="233" height="20"&gt;&lt;/svg:rect&gt;
+    &lt;svg:rect x="361" y="216" rx="5" ry="5" width="195" height="13"&gt;&lt;/svg:rect&gt;
+    &lt;svg:rect x="361" y="251" rx="5" ry="5" width="195" height="13"&gt;&lt;/svg:rect&gt;
+    &lt;svg:rect x="367" y="311" rx="8" ry="8" width="130" height="38"&gt;&lt;/svg:rect&gt;
+    &lt;svg:rect x="515" y="311" rx="8" ry="8" width="130" height="38"&gt;&lt;/svg:rect&gt;
+&lt;/lib-content-loader&gt;
+</code>
+            </pre>
+        </div>
+        <div class="col">
+            Basic usage
+        </div>
+    </div>
+</div>

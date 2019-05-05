@@ -1,5 +1,5 @@
-<svg role="img" [attr.aria-labelledby]="config.ariaLabel" [attr.viewBox]="getViewbox()" preserveAspectRatio="none"
-  [attr.style]="getSVGStyle()">
+<svg role="img" [attr.aria-labelledby]="config.ariaLabel" [attr.viewBox]="getViewbox()"
+  [attr.preserveAspectRatio]="config.preserveAspectRatio" [attr.style]="getSVGStyle()">
   <title *ngIf="config.ariaLabel">{{config.ariaLabel}}</title>
   <rect x="0" y="0" [attr.width]="config.width" [attr.height]="config.height"
     [attr.clip-path]="'url(#' + config.idClip + ')'" [attr.style]="getStyleAttr()"></rect>
